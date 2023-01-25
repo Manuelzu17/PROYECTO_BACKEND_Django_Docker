@@ -1,0 +1,21 @@
+#DJANGO
+Django==3.2.5
+#DJANGO REST-FRAMEWORK
+djangorestframework==3.12.4
+#MYSQL
+mysqlclient
+PyMySQL==1.0.2
+django-mysql==2.2.0
+#HISTORICO DE MODELOS
+django-simple-history==3.0.0
+#CAPTURAR EL USER
+django-crum==0.7.9
+#IMAGENES
+Pillow==8.3.1
+#LIBRERIA DE WIDGET PARA FORMULARIOS HTMl
+django-widget-tweaks==1.4.9
+#LIBRERIA DE PDFs
+xhtml2pdf==0.2.5
+reportlab==3.6.1
+django-betterforms==1.2
+#django-xhtml2pdf
