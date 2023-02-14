@@ -1,5 +1,12 @@
 version: '3.5'
 services:
+  db:
+    image: postgres:10.1-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - '5432'
+      
   proyecto_backend:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
@@ -7,4 +14,8 @@ services:
       - .:/my_app_django_dir
     ports:
       - "80:8000"
+    depends_on:
+      - db
 
+volumes:
+  postgres_data:

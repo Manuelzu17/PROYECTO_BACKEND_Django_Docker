@@ -6,7 +6,7 @@ djangorestframework==3.12.4
 mysqlclient
 PyMySQL==1.0.2
 django-mysql==2.2.0
-postgresql
+pgadmin4
 psycopg2
 #HISTORICO DE MODELOS
 django-simple-history==3.0.0

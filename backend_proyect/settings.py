@@ -28,7 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -39,8 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #Apps Propias
-    'backend_proyect.loginU',
-    'backend_proyect.home'
+    'tailwind',
+    'loginU',
+    'home',
+    'userAdmin'
 ]
 
 MIDDLEWARE = [
@@ -79,9 +80,13 @@ WSGI_APPLICATION = 'backend_proyect.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {        
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "postgres",
+        "USER": "postgres",
+        "PASSWORD": "postgres",
+        "HOST": "db",
+        "PORT": 5432,
     }
 }
 
@@ -123,31 +128,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+REPOSITORY_ROOT = os.path.dirname(BASE_DIR)
 
-STATIC_ROOT  = os.path.join(BASE_DIR, 'staticfiles/')
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(REPOSITORY_ROOT, 'static/')
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static'),
-]
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-LOGIN_REDIRECT_URL = '/home/'
-
-#LOGOUT_REDIRECT_URL = '/login/'
-LOGOUT_REDIRECT_URL = '/'
-
-
-#LOGIN_URL = '/login/'
-LOGIN_URL = '/'
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-
-MEDIA_URL = '/media/'
-
-AUTH_USER_MODEL = 'user.User'
-
-SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
