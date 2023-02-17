@@ -3,10 +3,10 @@
 <div class="d-flex justify-content-center align-items-center vh-100">
   <div class="border border-3 border-light p-5 bg-dark text-light rounded">
     <h3 class="text-center mb-4 text-uppercase">
-      <span class="text-success">//</span>Login<span class="text-danger">_</span>
+      <span class="text-success">//</span>logout<span class="text-danger">_</span>
     </h3>
 
-    <form method="POST" class="form-style" >
+    <form method="POST" class="form-style">
       <input type="hidden" name="next" value="{{ next }}" />
       {% csrf_token %}
     
@@ -14,7 +14,10 @@
       <div class="form-group">
         {{ form.as_p }}
       </div>
-      <button type="submit" class="btn btn-primary w-100">Sign In</button>
+      <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center " style="margin-left: auto;">
+        <i class="bi bi-person-plus-fill"></i>
+        <strong>SALIR</strong>
+      </a>
     </form>
     
   </div>

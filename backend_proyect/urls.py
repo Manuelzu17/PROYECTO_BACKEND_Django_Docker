@@ -17,15 +17,19 @@ from django.contrib import admin
 from django.urls import path
 
 # login app
-from userAdmin.views import UserAdmin
+from userAdmin.views import UserAdmin, ComentarioCreateView, ComentarioListView,ComentarioUpdateView
 from loginU.views import UserLoginView, UserLogout
 from home.views import HomeView
 
 urlpatterns = [
-   path('', HomeView.as_view()),     # new
-    path('home/', HomeView.as_view()),
+    path('home/', HomeView.as_view(), name="home"),
     path('admin/', admin.site.urls),
     path('login/', UserLoginView.as_view(), name="login"),
-    path('user/admin/', UserAdmin.as_view(), name="usersAdmin"),
+    path('user/admin/', ComentarioListView.as_view(), name="usersAdmin"),
+    path('accounts/profile/', ComentarioListView.as_view(), name="usersAdmin"),
     path('logout/', UserLogout.as_view(), name="logout"),
+    path('comentarios/', ComentarioListView.as_view(), name='lista_comentarios'),
+    path('crear_comentario/', ComentarioCreateView.as_view(template_name='userAdmin/create.html'), name='crear_comentario'),
+    path('comentario/<int:pk>/editar/', ComentarioUpdateView.as_view(), name='editar_comentario'),
+
 ]

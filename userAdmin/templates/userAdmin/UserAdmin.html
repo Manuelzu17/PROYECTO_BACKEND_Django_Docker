@@ -2,14 +2,46 @@
 <!--  -->
 {% block title %} Home {% endblock %}
 <!--  -->
+{% block LOGOUT %}
+      <!--  -->
+      <a href="{% url 'logout' %}" class="navbar-brand d-flex align-items-center " style="margin-left: auto;">
+        <i class="bi bi-person-plus-fill"></i>
+        <strong>LOGOUT</strong>
+      </a>
+{% endblock %}
 {% block content %}
 <!--  -->
-<div class="flex justify-center items-center h-screen w-full">
-  <a href="{% url 'logout' %}" class="text-white text-4xl">logout</a>
-  <div class=""></div>
-  <div class=""></div>
-  <div class=""></div>
+<div class="container mt-5">
+  <h1 class="mb-4">Lista de comentarios</h1>
+  <div class="row">
+    {% for comentario in object_list %}
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-header bg-dark text-light">
+            <h5 class="card-title">{{ comentario.asunto }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ comentario.nombre }}</h6>
+          </div>
+          {% if comentario.imagen %}
+            <img src="{{ comentario.imagen.url }}" class="card-img-top">
+          {% endif %}
+          <div class="card-body">
+            <p class="card-text">{{ comentario.comentario }}</p>
+            <a href="{% url 'editar_comentario' comentario.id %}" class="btn btn-primary">Editar</a>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <div class="col-md-12">
+        <p>No hay comentarios.</p>
+      </div>
+    {% endfor %}
+  </div>
 </div>
+
+    <a href="{% url 'crear_comentario' %}" class="navbar-brand d-flex align-items-center " style="margin-left: auto;">
+      <i class="bi bi-person-plus-fill"></i>
+      <strong>CREATE</strong>
+    </a>
 <!--  -->
 {% endblock %}
 <!--  -->

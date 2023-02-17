@@ -30,6 +30,8 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+MEDIA_URL = 'db/'
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #Apps Propias
     'tailwind',
+    'django_resized',
     'loginU',
     'home',
     'userAdmin'
@@ -126,10 +129,18 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
+STATIC_URL = '/db/'
+
+STATIC_ROOT  = os.path.join(BASE_DIR, 'dbfiles/')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'db'),
+]
 
 STATIC_URL = '/static/'
-REPOSITORY_ROOT = os.path.dirname(BASE_DIR)
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(REPOSITORY_ROOT, 'static/')
+STATIC_ROOT  = os.path.join(BASE_DIR, 'staticfiles/')
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'static'),
+]

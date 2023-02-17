@@ -22,3 +22,4 @@ reportlab==3.6.1
 django-betterforms==1.2
 #django-xhtml2pdf
 django-tailwind
+django-resized

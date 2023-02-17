@@ -17,7 +17,7 @@ class UserLoginView(LoginView):
 
 
 class UserLogout(LogoutView):
-    template_name = "login/login.html"
+    template_name = "login/logout.html"
 
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
