@@ -14,7 +14,7 @@ class Comentario(models.Model):
     nombre = models.CharField(max_length=100)
     asunto = models.CharField(max_length=200)
     comentario = models.TextField()
-    imagen = ResizedImageField(size=[800, 600], quality=90, upload_to='db/')
+    imagen = ResizedImageField(size=[800, 600], quality=90, upload_to='static')
 
 class Respuesta(models.Model):
     comentario = models.ForeignKey(Comentario, on_delete=models.CASCADE, related_name='respuestas')
