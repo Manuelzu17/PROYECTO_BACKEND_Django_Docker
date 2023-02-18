@@ -13,6 +13,10 @@
 <!--  -->
 <div class="container mt-5">
   <h1 class="mb-4">Lista de comentarios</h1>
+  <a href="{% url 'crear_comentario' %}" class="navbar-brand d-flex align-items-center " style="margin-left: auto;">
+    <i class="bi bi-chat-left-dots-fill"></i>
+    <strong>CREAR NUEVO COMENTARIO</strong>
+  </a>
   <div class="row">
     {% for comentario in object_list %}
       <div class="col-md-6">
@@ -27,7 +31,22 @@
           <div class="card-body">
             <p class="card-text">{{ comentario.comentario }}</p>
             <a href="{% url 'editar_comentario' comentario.id %}" class="btn btn-primary">Editar</a>
+            <a href="{% url 'crear_respuesta' comentario.id %}" class="btn btn-secondary">Crear respuesta
+            </a>
           </div>
+          {% if comentario.respuestas %}
+            <div class="card-footer">
+              <h6>Respuestas:</h6>
+              <ul>
+                {% for respuesta in comentario.respuestas.all %}
+                  <li><strong>{{ respuesta.nombre }}</strong></li>
+                  <p> {{ respuesta.respuesta }}</p>
+              {% endfor %}
+
+              </ul>
+
+            </div>
+          {% endif %}
         </div>
       </div>
     {% empty %}
@@ -38,10 +57,7 @@
   </div>
 </div>
 
-    <a href="{% url 'crear_comentario' %}" class="navbar-brand d-flex align-items-center " style="margin-left: auto;">
-      <i class="bi bi-person-plus-fill"></i>
-      <strong>CREATE</strong>
-    </a>
+    
 <!--  -->
 {% endblock %}
 <!--  -->

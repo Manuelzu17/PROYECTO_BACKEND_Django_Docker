@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 # login app
-from userAdmin.views import UserAdmin, ComentarioCreateView, ComentarioListView,ComentarioUpdateView
+from userAdmin.views import UserAdmin, ComentarioCreateView, RespuestaCreateView, ComentarioListView,ComentarioUpdateView
 from loginU.views import UserLoginView, UserLogout
 from home.views import HomeView
 
@@ -31,5 +31,5 @@ urlpatterns = [
     path('comentarios/', ComentarioListView.as_view(), name='lista_comentarios'),
     path('crear_comentario/', ComentarioCreateView.as_view(template_name='userAdmin/create.html'), name='crear_comentario'),
     path('comentario/<int:pk>/editar/', ComentarioUpdateView.as_view(), name='editar_comentario'),
-
+    path('crear_respuesta/<int:comentario_id>/', RespuestaCreateView.as_view(), name='crear_respuesta'),
 ]

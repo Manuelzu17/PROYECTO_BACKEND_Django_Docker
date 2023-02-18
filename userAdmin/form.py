@@ -21,3 +21,18 @@ class comentarioForm(ModelForm):
         }
 
 
+class RespuestaForm(ModelForm):
+    class Meta:
+        model = Respuesta
+        fields = ['nombre', 'respuesta', 'comentario']
+        labels = {
+            'nombre': 'Nombre',
+            'respuesta': 'Respuesta',
+        }
+        widgets = {
+
+            'comentario':Select(attrs={
+            'class':'custom-select form-control-border',
+            'hidden':'hidden'}),
+            
+        }

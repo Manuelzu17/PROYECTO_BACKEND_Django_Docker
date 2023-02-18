@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+<!--  -->
+{% block title %} Home {% endblock %}
+<!--  -->
+{% block LOGOUT %}
+<!--  -->
+<a href="{% url 'logout' %}" class="navbar-brand d-flex align-items-center " style="margin-left: auto;">
+  <i class="bi bi-person-plus-fill"></i>
+  <strong>LOGOUT</strong>
+</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <h2>Agregar una respuesta</h2>
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      {{ form.comentario }}
+    </div>
+    <div class="form-group">
+      <label for="id_email">Nombre:</label>
+      {{ form.nombre }}
+    </div>
+    <div class="form-group">
+      <label for="id_comentario">Respuesta:</label>
+      {{ form.respuesta }}
+    </div>
+   
+
+    <input type="submit" value="Agregar respuesta" class="btn btn-primary mt-3">
+  </form>
+</div>
+
+<a href="{% url 'usersAdmin' %}">Volver a la lista de comentarios</a>
+{% endblock %}
+
+
+
+<!--  -->
+<!--  -->
+{% block javascript %}
+<!--  -->
+{% endblock %}
