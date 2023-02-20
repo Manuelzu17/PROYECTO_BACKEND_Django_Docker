@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from django.conf import settings
+from django.conf.urls.static import static
 # login app
-from userAdmin.views import UserAdmin, ComentarioCreateView, RespuestaCreateView, ComentarioListView,ComentarioUpdateView
+from userAdmin.views import UserAdmin, ComentarioCreateView, RespuestaCreateView, ComentarioListView,ComentarioUpdateView, IndividualDetailView, discusionesListView
 from loginU.views import UserLoginView, UserLogout
 from home.views import HomeView
 
@@ -25,11 +26,15 @@ urlpatterns = [
     path('home/', HomeView.as_view(), name="home"),
     path('admin/', admin.site.urls),
     path('login/', UserLoginView.as_view(), name="login"),
-    path('user/admin/', ComentarioListView.as_view(), name="usersAdmin"),
-    path('accounts/profile/', ComentarioListView.as_view(), name="usersAdmin"),
+    path('user/admin/', discusionesListView.as_view(), name="usersAdmin"),
+    path('general', ComentarioListView.as_view(), name="usersAdmin"),
+    path('discusiones/', discusionesListView.as_view(), name="discuciones"),
+    path('accounts/profile/', discusionesListView.as_view(), name="usersAdmin"),
     path('logout/', UserLogout.as_view(), name="logout"),
     path('comentarios/', ComentarioListView.as_view(), name='lista_comentarios'),
     path('crear_comentario/', ComentarioCreateView.as_view(template_name='userAdmin/create.html'), name='crear_comentario'),
     path('comentario/<int:pk>/editar/', ComentarioUpdateView.as_view(), name='editar_comentario'),
     path('crear_respuesta/<int:comentario_id>/', RespuestaCreateView.as_view(), name='crear_respuesta'),
-]
+    path('Individual/<int:pk>/', IndividualDetailView.as_view(), name='Individual'),
+    
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

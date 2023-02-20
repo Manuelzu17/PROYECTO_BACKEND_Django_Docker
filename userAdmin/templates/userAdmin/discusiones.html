@@ -1,0 +1,122 @@
+{% extends "../base.html" %}
+
+{% block title %} Home {% endblock %}
+
+{% block LOGOUT %}
+<li><a class="text-white" href="{% url 'logout' %}" class="navbar-brand d-flex align-items-center "
+        style="margin-left: auto;">
+        <i class="bi bi-person-x-fill"></i>
+        <strong>LOGOUT</strong>
+    </a></li>
+{% endblock %}
+
+{% block content %}
+
+<main class="App-content">
+    <div id="content">
+        <div class="IndexPage">
+            <div class="container">
+                <div class="sideNavContainer">
+                    <nav class="IndexPage-nav sideNav">
+                        <ul>
+                            <li class="item-newDiscussion App-primaryControl"><a href="{% url 'crear_comentario' %}"
+                                    class="Button Button--primary IndexPage-newDiscussion hasIcon" type="button"
+                                    itemclassname="App-primaryControl"><i aria-hidden="true"
+                                        class="icon fas fa-edit Button-icon"></i><span class="Button-label">Empezar
+                                        discucion
+                                    </span></a></li>
+                            <li class="item-nav">
+                                <div class="ButtonGroup Dropdown dropdown App-titleControl Dropdown--select itemCount4">
+                                   
+                                    <ul class="Dropdown-menu dropdown-menu ">
+                                       
+                                       
+                                        <li class="Dropdown-separator"></li>
+                                        <li class="item-tag1"><a class="TagLinkButton hasIcon" href="{% url 'lista_comentarios' %}"
+                                                style="--color: #888;" title=""><span class="Button-icon icon TagIcon"
+                                                    style="--color: #888;"></span><span
+                                                    class="Button-label">General</span></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="IndexPage-results sideNavOffset">
+
+                        <div class="DiscussionList">
+                            {% for comentario in object_list %}
+                            <ul role="feed" class="DiscussionList-discussions">
+                                <li data-id="46" role="article" aria-setsize="-1" aria-posinset="0">
+                                    <div class="DiscussionListItem"><span
+                                            class="Slidable-underneath Slidable-underneath--left Slidable-underneath--elastic disabled"><i
+                                                aria-hidden="true" class="icon fas fa-check "></i></span>
+                                        <div class="DiscussionListItem-content Slidable-content"><a
+                                                class="DiscussionListItem-author" href="/u/stella78" title=""
+                                                aria-label="stella78 started 4 hours ago"
+                                                data-original-title="stella78 started 4 hours ago"><span class="Avatar "
+                                                    loading="lazy" style="--avatar-bg: #e5c9a0;">S</span></a>
+                                            <ul class="DiscussionListItem-badges badges"></ul><a
+                                                href="{% url 'Individual' pk=comentario.id %}"
+                                                class="DiscussionListItem-main">
+                                                <h3 class="DiscussionListItem-title">{{ comentario.asunto }}</h3>
+                                                <ul class="DiscussionListItem-info">
+                                                    <li class="item-tags"><span class="TagsLabel "><span
+                                                                style="--tag-bg: #888;" class="TagLabel  colored"><span
+                                                                    class="TagLabel-text"> General</span></span></span>
+                                                    </li>
+                                                    <li class="item-terminalPost"><span><i aria-hidden="true"
+                                                                class="icon fas fa-reply "></i> <span
+                                                                class="username">DukeofTelluride</span> replied <time
+                                                                pubdate="" datetime="2023-02-18T11:14:23-05:00"
+                                                                title="Saturday, February 18, 2023 11:14 AM"
+                                                                data-humantime="">an hour ago</time></span></li>
+                                                </ul>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="flarum-loading" style="display: none;">
+        Loading...
+    </div>
+
+
+    <div class="App-composer">
+        <div class="container">
+            <div id="composer">
+                <div class="Composer " style="display: none; bottom: -300px; height: 300px;">
+                    <div class="Composer-handle" style="cursor: row-resize;"></div>
+                    <ul class="Composer-controls">
+                        <li class="item-minimize App-backControl"><button
+                                class="Button Button--icon Button--link hasIcon" type="button" aria-label="Minimize"
+                                itemclassname="App-backControl"><i aria-hidden="true"
+                                    class="icon fas fa-minus minimize Button-icon"></i><span
+                                    class="Button-label"></span></button></li>
+                        <li class="item-fullScreen"><button class="Button Button--icon Button--link hasIcon"
+                                type="button" aria-label="Full Screen"><i aria-hidden="true"
+                                    class="icon fas fa-expand Button-icon"></i><span
+                                    class="Button-label"></span></button></li>
+                        <li class="item-close"><button class="Button Button--icon Button--link hasIcon" type="button"
+                                aria-label="Close"><i aria-hidden="true" class="icon fas fa-times Button-icon"></i><span
+                                    class="Button-label"></span></button></li>
+                    </ul>
+                    <div class="Composer-content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
+
+{% block javascript %}
+<!--  -->
+{% endblock %}

@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, DetailView
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from userAdmin.models import Producto, Comentario
@@ -22,6 +22,17 @@ class ComentarioListView(ListView):
     model = Comentario
     form_class = comentarioForm
     template_name = 'userAdmin/UserAdmin.html'
+
+    
+class discusionesListView(ListView):
+    model = Comentario
+    form_class = comentarioForm
+    template_name = 'userAdmin/discusiones.html'
+
+class IndividualDetailView(DetailView):
+    model = Comentario
+    template_name = 'userAdmin/individual.html'
+    
 
 class ComentarioCreateView(CreateView):
     model = Comentario

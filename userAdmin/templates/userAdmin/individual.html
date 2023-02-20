@@ -1,0 +1,129 @@
+{% extends "../base.html" %}
+
+{% block title %} Home {% endblock %}
+
+{% block LOGOUT %}
+<li><a class="text-white" href="{% url 'logout' %}" class="navbar-brand d-flex align-items-center "
+        style="margin-left: auto;">
+        <i class="bi bi-person-x-fill"></i>
+        <strong>LOGOUT</strong>
+    </a></li>
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <nav class="DiscussionPage-nav">
+        <ul>
+            <li class="item-controls">
+
+            </li>
+            <li class="item-scrubber">
+                <div class="PostStreamScrubber Dropdown App-titleControl"><button class="Button Dropdown-toggle"
+                        data-toggle="dropdown"><span class="Scrubber-index">1</span> of <span
+                            class="Scrubber-count">3</span> posts <i aria-hidden="true"
+                            class="icon fas fa-sort "></i></button>
+
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div class="DiscussionPage-stream">
+
+        <div class="PostStream" role="feed" aria-live="off" aria-busy="false">
+            <div class="PostStream-item" data-index="0" data-time="2023-02-18T12:53:53.000Z" data-number="1"
+                data-id="2795" data-type="comment">
+                <article class=" CommentPost Post Post--by-start-user">
+                    <div>
+                        <header class="Post-header">
+                            <ul>
+                                <li class="item-user">
+                                    <div class="PostUser">
+                                        <h3><a href="{% url 'login' %}"><span class="Avatar PostUser-avatar" loading="lazy"
+                                                    style="--avatar-bg: #e5c9a0;">S</span><span class="username">{{ comentario.nombre }}</span></a></h3>
+                                        <ul class="PostUser-badges badges"></ul>
+                                    </div>
+                                </li>
+                                <li class="item-meta">
+                                    <div class="Dropdown PostMeta"><a class="Dropdown-toggle"
+                                            data-toggle="dropdown"><time pubdate="" datetime="2023-02-18T07:53:53-05:00"
+                                                title="Saturday, February 18, 2023 7:53 AM" data-humantime="">5 hours
+                                                ago</time></a>
+                                        <div class="Dropdown-menu dropdown-menu"><span class="PostMeta-number">Post
+                                                #1</span> <span class="PostMeta-time"><time pubdate=""
+                                                    datetime="2023-02-18T07:53:53-05:00">Saturday, February 18, 2023
+                                                    7:53 AM</time></span> <span class="PostMeta-ip"></span><input
+                                                class="FormControl PostMeta-permalink"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </header>
+                        <div class="Post-body">
+                            <p>{{ comentario.comentario }}</p>
+                        </div>
+                        <div class="Post-body">
+                            <img src="{{ comentario.imagen.url }}" style="width: 200px; height: 200px;"></img>
+                        </div>
+                        <aside class="Post-actions">
+                            <ul>
+                                <li class="item-reply"><a href="{% url 'crear_respuesta' comentario.id %}" class="Button Button--link" type="button"><span
+                                            class="Button-label">Responder</span></a></li>
+                            </ul>
+                        </aside>
+                        <footer class="Post-footer"></footer>
+                    </div>
+                </article>
+                <div class="Post-quoteButtonContainer"></div>
+            </div>
+            <div class="PostStream-item" data-index="1" data-time="2023-02-18T16:14:07.000Z" data-number="2"
+                data-id="2796" data-type="comment">
+                <article class=" CommentPost Post">
+                    <div>
+                        <header class="Post-header">
+                            <ul>
+                                <li class="item-user">
+                                    <div class="PostUser">
+                                        <h3><a href="/u/DukeofTelluride"><span class="Avatar PostUser-avatar"
+                                                    loading="lazy" style="--avatar-bg: #b3e5a0;">D</span><span
+                                                    class="username">DukeofTelluride</span></a></h3>
+                                        <ul class="PostUser-badges badges"></ul>
+                                    </div>
+                                </li>
+                                <li class="item-meta">
+                                    <div class="Dropdown PostMeta"><a class="Dropdown-toggle"
+                                            data-toggle="dropdown"><time pubdate="" datetime="2023-02-18T11:14:07-05:00"
+                                                title="Saturday, February 18, 2023 11:14 AM" data-humantime="">2 hours
+                                                ago</time></a>
+                                        <div class="Dropdown-menu dropdown-menu"><span class="PostMeta-number">Post
+                                                #2</span> <span class="PostMeta-time"><time pubdate=""
+                                                    datetime="2023-02-18T11:14:07-05:00">Saturday, February 18, 2023
+                                                    11:14 AM</time></span> <span class="PostMeta-ip"></span><input
+                                                class="FormControl PostMeta-permalink"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </header>
+                        <div class="Post-body">
+                            <p>so what</p>
+                        </div>
+                        <aside class="Post-actions">
+                            <ul>
+                                <li class="item-reply"><button class="Button Button--link" type="button"><span
+                                            class="Button-label">Reply</span></button></li>
+                            </ul>
+                        </aside>
+                        <footer class="Post-footer"></footer>
+                    </div>
+                </article>
+                <div class="Post-quoteButtonContainer"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+<!--  -->
+{% endblock %}

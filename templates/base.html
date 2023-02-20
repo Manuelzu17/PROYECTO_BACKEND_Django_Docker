@@ -7,12 +7,25 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<style>
+  h1 {
+    text-transform: uppercase;
+    font-size: 48px;
+    color: #333;
+    font-family: Arial, sans-serif;
+  }
+</style>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <div class="bg-dark collapse" id="navbarHeader" style="">
+  <div  class="bg-dark collapse" id="navbarHeader" style="">
     <div class="container">
       <div class="row">
         <div class="col-sm-8 col-md-7 py-4">
@@ -22,31 +35,32 @@
             social networking sites or contact information.</p>
         </div>
         <div class="col-sm-4 offset-md-1 py-4">
-          <h4 class="text-white">Contact</h4>
+          <h4 class="text-white">Options</h4>
           <ul class="list-unstyled">
-            <li><a href="#" class="text-white">Follow on Twitter</a></li>
-            <li><a href="#" class="text-white">Like on Facebook</a></li>
-            <li><a href="#" class="text-white">Email me</a></li>
+            <li><a class="text-white" href="{% url 'login' %}" class="navbar-brand d-flex align-items-center "
+                style="margin-left: auto;">
+                <i class="bi bi-person-plus-fill"></i>
+                <strong>LOGIN</strong>
+              </a>
+            </li>
+            <div class="col-sm-1 offset-md-1 py-1"></div>
+            {% block LOGOUT %}
+            <!--  -->
+
+            {% endblock %}
           </ul>
         </div>
       </div>
     </div>
   </div>
-  <div class="navbar navbar-dark bg-dark shadow-sm">
+  <div  class="navbar navbar-dark w3-dark-grey shadow-sm">
     <div class="container">
       <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center">
         <i class="bi bi-tencent-qq"></i>
         <strong>BIENVENIDO AL PINGÜIFORO</strong>
       </a>
-      <a href="{% url 'login' %}" class="navbar-brand d-flex align-items-center " style="margin-left: auto;">
-        <i class="bi bi-person-plus-fill"></i>
-        <strong>LOGIN</strong>
-      </a>
-      {% block LOGOUT %}
-      <!--  -->
-      
-      {% endblock %}
-
+    </div>
+    <div>
       <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
         aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
