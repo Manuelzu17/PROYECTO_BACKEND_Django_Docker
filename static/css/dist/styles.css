@@ -4922,7 +4922,12 @@
  *:before,
  *:after {
   box-sizing:border-box
- }
+ }h1 {
+    text-transform: uppercase;
+    font-size: 48px;
+    color: #333;
+    font-family: Arial, sans-serif;
+  }
  body {
   background:var(--body-bg);
   color:var(--text-color);
@@ -4931,7 +4936,9 @@
   line-height:1.5;
   overflow-y:scroll;
   overflow-x:hidden
+  
  }
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
  h1,
  h2,
  h3,

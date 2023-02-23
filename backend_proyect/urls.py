@@ -27,7 +27,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', UserLoginView.as_view(), name="login"),
     path('user/admin/', discusionesListView.as_view(), name="usersAdmin"),
-    path('general', ComentarioListView.as_view(), name="usersAdmin"),
     path('discusiones/', discusionesListView.as_view(), name="discuciones"),
     path('accounts/profile/', discusionesListView.as_view(), name="usersAdmin"),
     path('logout/', UserLogout.as_view(), name="logout"),

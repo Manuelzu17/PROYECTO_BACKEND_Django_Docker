@@ -39,8 +39,9 @@
                             <ul>
                                 <li class="item-user">
                                     <div class="PostUser">
-                                        <h3><a href="{% url 'login' %}"><span class="Avatar PostUser-avatar" loading="lazy"
-                                                    style="--avatar-bg: #e5c9a0;">S</span><span class="username">{{ comentario.nombre }}</span></a></h3>
+                                        <h3><a href="{% url 'login' %}"><span class="Avatar PostUser-avatar"
+                                                    loading="lazy" style="--avatar-bg: #e5c9a0;">S</span><span
+                                                    class="username">{{ comentario.nombre }}</span></a></h3>
                                         <ul class="PostUser-badges badges"></ul>
                                     </div>
                                 </li>
@@ -66,7 +67,8 @@
                         </div>
                         <aside class="Post-actions">
                             <ul>
-                                <li class="item-reply"><a href="{% url 'crear_respuesta' comentario.id %}" class="Button Button--link" type="button"><span
+                                <li class="item-reply"><a href="{% url 'crear_respuesta' comentario.id %}"
+                                        class="Button Button--link" type="button"><span
                                             class="Button-label">Responder</span></a></li>
                             </ul>
                         </aside>
@@ -79,21 +81,22 @@
                 data-id="2796" data-type="comment">
                 <article class=" CommentPost Post">
                     <div>
+                        {% for respuesta in comentario.respuestas.all %}
                         <header class="Post-header">
                             <ul>
                                 <li class="item-user">
                                     <div class="PostUser">
-                                        <h3><a href="/u/DukeofTelluride"><span class="Avatar PostUser-avatar"
-                                                    loading="lazy" style="--avatar-bg: #b3e5a0;">D</span><span
-                                                    class="username">DukeofTelluride</span></a></h3>
+                                        <h3><span class="Avatar PostUser-avatar"
+                                                    loading="lazy" style="--avatar-bg: #b3e5a0;">{{ respuesta.nombre }}</span><span
+                                                    class="username">{{ respuesta.nombre }}</span></a></h3>
                                         <ul class="PostUser-badges badges"></ul>
                                     </div>
                                 </li>
                                 <li class="item-meta">
                                     <div class="Dropdown PostMeta"><a class="Dropdown-toggle"
                                             data-toggle="dropdown"><time pubdate="" datetime="2023-02-18T11:14:07-05:00"
-                                                title="Saturday, February 18, 2023 11:14 AM" data-humantime="">2 hours
-                                                ago</time></a>
+                                                title="Saturday, February 18, 2023 11:14 AM"
+                                                data-humantime=""></time></a>
                                         <div class="Dropdown-menu dropdown-menu"><span class="PostMeta-number">Post
                                                 #2</span> <span class="PostMeta-time"><time pubdate=""
                                                     datetime="2023-02-18T11:14:07-05:00">Saturday, February 18, 2023
@@ -104,7 +107,8 @@
                             </ul>
                         </header>
                         <div class="Post-body">
-                            <p>so what</p>
+                            <p>{{ respuesta.respuesta }}</p>
+                            {% endfor %}
                         </div>
                         <aside class="Post-actions">
                             <ul>
