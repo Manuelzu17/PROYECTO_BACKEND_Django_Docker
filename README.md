@@ -1,6 +1,6 @@
 # Title from project
 
-# PASO 1 CREAR DockerFile
+# PASO 1 CREAR Dockerfile
 
 ```
 FROM python:3.9
